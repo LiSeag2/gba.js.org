@@ -15,7 +15,7 @@ jobs:
       - name: Unzip ROMs
         run: |
           mkdir -p binaries  # Ensure the binaries directory exists
-          unzip "Pokemon Unbound (v2.1.1.1) (2).zip" -d binaries  # Unzip directly into the binaries directory
+          unzip "Pokemon Unbound (v2.1.1.1).zip" -d binaries  # Unzip directly into the binaries directory
           
       - name: Commit unzipped files
         run: |

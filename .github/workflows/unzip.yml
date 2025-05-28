@@ -1,0 +1,26 @@
+name: Unzip ROMs
+
+on:
+  push:
+    branches:
+      - main  # Change this to your default branch if it's different
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Unzip ROMs
+        run: |
+          mkdir -p binaries  # Ensure the binaries directory exists
+          unzip "Pokemon Unbound (v2.1.1.1) (2).zip" -d binaries  # Unzip directly into the binaries directory
+          
+      - name: Commit unzipped files
+        run: |
+          git config --local user.email "ben.lindfieldseager@tyndale.edu.au"
+          git config --local user.name "LiSeag2"
+          git add binaries
+          git commit -m "Unzipped ROMs" || echo "No changes to commit"
+          git push

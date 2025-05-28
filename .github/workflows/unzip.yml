@@ -15,12 +15,12 @@ jobs:
       - name: Unzip ROMs
         run: |
           mkdir -p binaries  # Ensure the binaries directory exists
-          unzip "Pokemon Unbound (v2.1.1.1).zip" -d binaries  # Unzip directly into the binaries directory
+          unzip "binaries/Pokemon Unbound (v2.1.1.1).zip" -d binaries  # Use the correct path
           
       - name: Commit unzipped files
         run: |
-          git config --local user.email "ben.lindfieldseager@tyndale.edu.au"
-          git config --local user.name "LiSeag2"
+          git config --local user.email "your_email@example.com"  # Update with your email
+          git config --local user.name "Your Name"  # Update with your name
           git add binaries
           git commit -m "Unzipped ROMs" || echo "No changes to commit"
           git push
